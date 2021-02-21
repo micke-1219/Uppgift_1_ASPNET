@@ -1,0 +1,22 @@
+﻿@if (User.IsInRole("Admin"))
+{
+    <div class="container">
+        <ul class="nav admin-menu justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create New User</a>
+            </li>
+            <li class="nav-item">
+                <p class="nav-link text-dark">|</p>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+            </li>
+            <li class="nav-item">
+                <p class="nav-link text-dark">|</p>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="SchoolClasses" asp-action="Index">Manage Classes</a>
+            </li>
+        </ul>
+    </div>
+}

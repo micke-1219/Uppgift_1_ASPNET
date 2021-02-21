@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ApplicationUser>
+
+<h1>Users</h1>
+
+<h5 class="mt-5 mb-5">Admins</h5>
+<div class="grid-container">
+    @foreach (var user in ViewBag.Admins)
+    {
+        <div class="grid-item">
+            <div class="d-flex justify-content-center"><img src="~/Images/user-icon.png"></div>
+            <p class="name"><strong>@user.DisplayName</strong></p>
+            <p class="role">Admin</p>
+        </div>
+    }
+</div>
+
+<h5 class="mb-5">Students</h5>
+<div class="grid-container">
+    @foreach (var user in ViewBag.Students)
+    {
+        <div class="grid-item">
+            <div class="d-flex justify-content-center"><img src="~/Images/user-icon.png"></div>
+            <p class="name"><strong>@user.DisplayName</strong></p>
+            <p class="role">Student</p>
+        </div>
+    }
+</div>
+
+<h5 class="mb-5">Teachers</h5>
+<div class="grid-container">
+    @foreach (var user in ViewBag.Teachers)
+    {
+        <div class="grid-item">
+            <div class="d-flex justify-content-center"><img src="~/Images/user-icon.png"></div>
+            <p class="name"><strong>@user.DisplayName</strong></p>
+            <p class="role">Teacher</p>
+        </div>
+    }
+</div>

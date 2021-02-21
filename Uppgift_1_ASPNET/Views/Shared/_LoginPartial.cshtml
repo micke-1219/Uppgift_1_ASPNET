@@ -1,0 +1,35 @@
+﻿
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav flex-grow-1 main-menu">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Courses">Courses</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Schedule">Schedule</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                @User.FindFirst("DisplayName").Value
+                @if (User.IsInRole("Teacher"))
+                {
+                    <span>(Teacher Account)</span>
+                }
+                @if (User.IsInRole("Student"))
+                {
+                <span>(Student Account)</span>
+                }
+            </a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    </ul>
+}
